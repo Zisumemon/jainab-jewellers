@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard - Jainab Jewellers</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Welcome, Admin</h1>
+  <nav>
+    <a href="purchase.html">Purchase</a> |
+    <a href="sale.html">Sale</a> |
+    <a href="stock.html">Stock</a> |
+    <a href="invoice.html">Invoice</a> |
+    <a href="login.html" onclick="logout()">Logout</a>
+  </nav>
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+    function logout() {
+      localStorage.removeItem("loggedIn");
+    }
+  </script>
+</body>
+</html>

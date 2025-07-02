@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stock Summary</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Stock Summary</h1>
+  <table id="stockTable">
+    <thead>
+      <tr><th>Item</th><th>P Qty</th><th>S Qty</th><th>P Weight</th><th>S Weight</th><th>Final Qty</th><th>Final Wt</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="script.js"></script>
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") window.location.href = "login.html";
+    calculateStock();
+  </script>
+</body>
+</html>

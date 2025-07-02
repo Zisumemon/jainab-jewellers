@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sale Entry</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Sale Entry</h1>
+  <form id="saleForm">
+    <input type="number" placeholder="Bill No" id="bill" required />
+    <input type="date" id="date" required />
+    <input type="text" placeholder="Item" id="item" required />
+    <input type="number" placeholder="Qty" id="qty" required />
+    <input type="number" placeholder="Weight" id="weight" required step="any"/>
+    <button type="submit">Add</button>
+  </form>
+
+  <table id="saleTable">
+    <thead>
+      <tr><th>Bill</th><th>Date</th><th>Item</th><th>Qty</th><th>Weight</th></tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="script.js"></script>
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") window.location.href = "login.html";
+    loadTable("sale", "saleTable");
+
+    document.getElementById("saleForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const entry = {
+        bill: document.getElementById("bill").value,
+        date: document.getElementById("date").value,
+        item: document.getElementById("item").value,
+        qty: parseInt(document.getElementById("qty").value),
+        weight: parseFloat(document.getElementById("weight").value)
+      };
+      addEntry("sale", entry);
+      loadTable("sale", "saleTable");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
